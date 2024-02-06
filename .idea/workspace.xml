@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.05_numbers_list">
+  <component name="RunManager" selected="Python.01_digit_pin">
     <configuration name="01_digit_pin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Practice Tasks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.01_digit_pin" />
+        <item itemvalue="Python.02_fish_list" />
         <item itemvalue="Python.05_numbers_list" />
         <item itemvalue="Python.04_character_counter" />
         <item itemvalue="Python.03_e_counter" />
-        <item itemvalue="Python.02_fish_list" />
-        <item itemvalue="Python.01_digit_pin" />
       </list>
     </recent_temporary>
   </component>
