@@ -128,42 +128,60 @@ def confirm(bread, meat, garnish, total):
                       "Cheese": 2.5}
 
     meat_order = ""
+    # Loop through meats ordered with prices
     for i in meat:
         meat_order += f"{i} ${meat_prices[i]:.2f}\n"
 
     garnish_order = ""
+    # Loop through garnishes ordered with prices
     for i in garnish:
         garnish_order += f"{i} ${garnish_prices[i]:.2f}\n"
 
+    # Print order, and ask user to confirm
     correct = easygui.buttonbox(f"Your order is:\n\n"
-                                f"Bread- {bread} ${bread_prices[bread]:.2f}\n\n"
-                                f"Meat- {meat_order}\n"
-                                f"Garnish - {garnish_order}\n"
+                                f"BREAD\n{bread} "
+                                f"${bread_prices[bread]:.2f}\n\n"
+                                f"MEAT\n{meat_order}\n"
+                                f"GARNISH\n{garnish_order}\n"
                                 f"Total - {total}",
                                 "CONFIRM",
                                 choices=["Confirm", "Make a change"])
 
+    # Ask user what component they would like to change
     if correct == "Make a change":
         component = easygui.buttonbox("What would you like to change?",
                                       "CHANGE", choices=["Bread", "Meat",
                                                          "Garnish"])
         if component == "Bread":
-            bread_menu()
+            # User selects bread again
+            bread = bread_menu()
+            total = calculate(bread, meat, garnish)
+            confirm(bread, meat, garnish, total)
 
         elif component == "Meat":
-            meat_menu()
+            # User selects meat again
+            meat = meat_menu()
+            total = calculate(bread, meat, garnish)
+            confirm(bread, meat, garnish, total)
 
         elif component == "Garnish":
-            garnish_menu()
+            # User selects garnish again
+            garnish = garnish_menu()
+            total = calculate(bread, meat, garnish)
+            confirm(bread, meat, garnish, total)
 
     elif correct == "Confirm":
-        easygui.msgbox("ENJOY!")
+        easygui.msgbox("ENJOY!", "GOODBYE")
 
 
 # Main Routine
-easygui.msgbox("Welcome to sandwich maker!")
+easygui.msgbox("Welcome to sandwich maker!", "WELCOME")
+
+# Select order
 bread_chosen = bread_menu()
 meat_chosen = meat_menu()
 garnish_chosen = garnish_menu()
+
+# Calculate cost and confirm
 cost = calculate(bread_chosen, meat_chosen, garnish_chosen)
 confirm(bread_chosen, meat_chosen, garnish_chosen, cost)
